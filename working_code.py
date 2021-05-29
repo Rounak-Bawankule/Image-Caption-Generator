@@ -27,7 +27,7 @@ from keras.utils import to_categorical
 # In[2]:
 
 
-f = open("wordtoidx.pkl", "rb")
+f = open("./storage/wordtoidx.pkl", "rb")
 word_to_idx = pickle.load(f)
 f.close()
 
@@ -35,7 +35,7 @@ f.close()
 # In[3]:
 
 
-f = open("idxtoword.pkl", "rb")
+f = open("./storage/idxtoword.pkl", "rb")
 idx_to_word = pickle.load(f)
 f.close()
 
