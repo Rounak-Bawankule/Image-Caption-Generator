@@ -31,21 +31,17 @@ def homepage():
 
     if request.method == "POST":
         f = request.files['image']
-        path = f'./static/{f.filename}'
+        path = f'./static/user_images/{f.filename}'
         f.save(path)
         caption = generate(path)
         generate_sound(caption, f.filename)
-        return render_template('upload.html', caption=caption, path=path)
+        return render_template('index.html', caption=caption, path=path)
     else:
-        return render_template('upload.html')
-
-@app.route("/howto")
-def howtouse():
-    return render_template("howtouse.html")
+        return render_template('index.html')
 
 @app.route("/contact")
 def contact():
-    return render_template("Contactpage.html")
+    return render_template("contact.html")
 
 
 
