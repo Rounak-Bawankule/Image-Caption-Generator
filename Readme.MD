@@ -12,6 +12,11 @@ Dataset used -
 Some generated captions - 
 
 <img src="https://i.imgur.com/EdFtCqB.png" align="center" width=500px/>
+<<<<<<< HEAD
+=======
+---
+<img src="https://i.imgur.com/tSJJKgK.png"  align="center" width=500px/>
+>>>>>>> 56646a656efcc238a4f941b427616afda1fdefbc
 ---
 <img src="https://i.imgur.com/tSJJKgK.png"  align="center" width=500px/>
 ---
