@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -73,12 +76,8 @@
                  
                           <div class="bg-blue-200 p-3 flex mt-10" style="border-radius: 7px; color: #094b65; z-index: 9999; align-items: center;">
                             <p id="cap" onclick="copyElementText(this.id)">{{caption}}</p> 
-                        <button class="btn btn-outline-dark fa fa-volume-up p-2 ml-5" style="border-radius: 50%;" id="speak"  onclick="playAudio()"> </button>
-                        <audio id="audio_player">
-                            <source src="/static/sounds/sound.mp3"  type="audio/mpeg">
-                            Your browser does not support the audio element.
-                          </audio>
-                          
+                        <button class="btn btn-outline-dark fa fa-volume-up p-2 ml-5" style="border-radius: 50%;" id="speak"> </button>
+
                         </div>
                 
                         <p class="text-white-300"><small>Click on the caption to copy it to clipboard!</small></p>     
@@ -223,10 +222,7 @@
       // submitting the form
       document.getElementById("upload_form").submit();
   };
-  var x = document.getElementById("audio_player"); 
-function playAudio() { 
-  x.play(); 
-} 
+
 function copyElementText(id) {
     var text = document.getElementById(id).innerText;
     var elem = document.createElement("textarea");
@@ -236,6 +232,17 @@ function copyElementText(id) {
     document.execCommand("copy");
     document.body.removeChild(elem);
 }
+
+document.querySelector("#speak").addEventListener('click', function() {
+    console.log(document.querySelector("#cap").textContent.trim())
+	if(document.querySelector("#cap").textContent != '') {
+		var utter = new SpeechSynthesisUtterance();
+		utter.text = document.querySelector("#cap").textContent;
+		utter.lang = 'en-US';
+
+		window.speechSynthesis.speak(utter);
+	}
+});
 
 
     </script>
